@@ -1,0 +1,7 @@
+cflags = -Wall -Wextra -std=c++17 -m32
+ldflags = -lmbedtls -lmbedcrypto
+
+rule cxx
+  command = g++ $cflags $ldflags $in -o $out
+
+build mbed_embed: cxx mbed_embed.cpp
